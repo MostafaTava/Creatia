@@ -1,0 +1,13 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+
+# Node (if any)
+node_modules/
+dist/
+
+# Build outputs
+*.log
+.env
+
