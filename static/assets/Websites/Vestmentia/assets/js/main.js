@@ -319,3 +319,23 @@
    */
   new PureCounter();
 })();
+
+/* ---------- Moved from index.html (WebFont loader) ---------- */
+(function(){
+  try {
+    var wf = document.createElement('script');
+    wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = true;
+    wf.onload = function(){
+      try {
+        if (window.WebFont) {
+          WebFont.load({ google: { families: ['Inter:regular,500,600,700'] } });
+        }
+      } catch(e) { /* ignore */ }
+    };
+    document.head.appendChild(wf);
+  } catch(e) { /* ignore in restricted environments */ }
+})();
+
+/* ---------- End moved code ---------- */

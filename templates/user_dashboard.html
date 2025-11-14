@@ -2,11 +2,109 @@
 {% block content %}
 <div class="content-wrapper">
   <section class="content-header">
-    <h1>My Tasks</h1>
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+      <div>
+        <h1>My Dashboard</h1>
+        <p style="margin: 5px 0 0 0; color: #999; font-size: 0.9rem;">Your personal workspace and activity</p>
+      </div>
+      <a href="{{ url_for('logout') }}" class="btn-logout">Logout</a>
+    </div>
   </section>
-  <section class="content">
-    <p>Welcome, team member! View your assigned jobs here.</p>
-  </section>
-</div>
-{% endblock %}
 
+  <section class="content">
+
+    <!-- Persian Calendar -->
+    <div class="dashboard-card calendar-card">
+      <h3>📅 Solar Hijri & Gregorian Calendar</h3>
+      <div class="persian-calendar-wrapper">
+        <div class="calendar-header">
+          <button class="calendar-nav-btn" id="prevMonth">&laquo;</button>
+          <h4 id="currentMonth"></h4>
+          <button class="calendar-nav-btn" id="nextMonth">&raquo;</button>
+        </div>
+        <div class="calendar-weekdays">
+          <div class="weekday">Sha</div>
+          <div class="weekday">Yek</div>
+          <div class="weekday">Dos</div>
+          <div class="weekday">Ses</div>
+          <div class="weekday">Cha</div>
+          <div class="weekday">Pan</div>
+          <div class="weekday">Jom</div>
+        </div>
+        <div class="calendar-grid" id="calendarGrid"></div>
+      </div>
+      
+      <div class="task-input-section">
+        <h4 style="margin-top: 25px; color: rgb(5, 99, 187);">Add Task for Selected Date</h4>
+        <input type="text" id="taskInput" placeholder="Enter task description..." class="task-input">
+        <button id="addTaskBtn" class="btn-action">Add Task</button>
+        <div id="selectedDateDisplay" style="margin-top: 10px; color: #666; font-size: 0.9rem;"></div>
+      </div>
+
+      <div class="tasks-list">
+        <h4 style="color: rgb(5, 99, 187); margin-top: 20px;">Your Tasks</h4>
+        <div id="tasksList" style="margin-top: 15px;"></div>
+      </div>
+    </div>
+
+    <!-- Quick Actions & Info -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+      <div class="dashboard-card">
+        <h3>📝 Your Tasks</h3>
+        <p>View and manage your assigned tasks. Track progress and update status as you work.</p>
+        <div style="background: #f8f9fa; padding: 12px; border-radius: 8px; margin: 15px 0; font-size: 0.9rem; text-align: center; color: #999;">
+          No tasks assigned yet
+        </div>
+        <a href="#" class="btn-action">View Tasks</a>
+      </div>
+
+      <div class="dashboard-card">
+        <h3>📊 My Projects</h3>
+        <p>See all projects you're involved in. Check project status, deadlines, and team members.</p>
+        <div style="background: #f8f9fa; padding: 12px; border-radius: 8px; margin: 15px 0; font-size: 0.9rem; text-align: center; color: #999;">
+          No projects joined yet
+        </div>
+        <a href="#" class="btn-action">Browse Projects</a>
+      </div>
+
+      <div class="dashboard-card">
+        <h3>👤 Profile Settings</h3>
+        <p>Update your profile information, password, and account preferences.</p>
+        <div style="background: #f8f9fa; padding: 12px; border-radius: 8px; margin: 15px 0; font-size: 0.85rem;">
+          <p style="margin: 0;">Email Notifications: <strong>Enabled</strong></p>
+        </div>
+        <a href="#" class="btn-action">Edit Profile</a>
+      </div>
+
+      <div class="dashboard-card">
+        <h3>📅 Activity</h3>
+        <p>View your recent activity and engagement history on the platform.</p>
+        <div style="background: #f8f9fa; padding: 12px; border-radius: 8px; margin: 15px 0; font-size: 0.9rem; text-align: center; color: #999;">
+          Just logged in
+        </div>
+        <a href="#" class="btn-action">View Activity</a>
+      </div>
+
+      <div class="dashboard-card">
+        <h3>💬 Messages</h3>
+        <p>Communicate with your team members and managers through direct messages.</p>
+        <div style="background: #f8f9fa; padding: 12px; border-radius: 8px; margin: 15px 0; font-size: 0.85rem;">
+          <p style="margin: 0;">New Messages: <strong>0</strong></p>
+        </div>
+        <a href="#" class="btn-action">Check Messages</a>
+      </div>
+
+      <div class="dashboard-card">
+        <h3>🎯 Goals</h3>
+        <p>Set and track personal goals to improve your productivity and performance.</p>
+        <div style="background: #f8f9fa; padding: 12px; border-radius: 8px; margin: 15px 0; font-size: 0.9rem; text-align: center; color: #999;">
+          No goals set yet
+        </div>
+        <a href="#" class="btn-action">Set Goals</a>
+      </div>
+    </div>
+  </section>
+<!-- Styles moved to `static/assets/css/style.css` -->
+
+<!-- JavaScript moved to `static/assets/js/main.js` -->
+{% endblock %}

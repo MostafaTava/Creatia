@@ -529,6 +529,12 @@ section {
   font-weight: 700;
 }
 
+/* ---------- Small inline styles moved from index.html ---------- */
+* { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+.slider-pointer { pointer-events: none; }
+.w-webflow-badge { display: none !important; visibility: hidden !important; }
+/* ---------- End moved styles ---------- */
+
 .hero .btn-get-started {
   margin-top: 30px;
   line-height: 0;
